@@ -1,0 +1,39 @@
+.progress-container {
+  width: 100%;
+}
+.progress-bar-outer {
+  width: 100%;
+  height: 30px;
+  border-radius: 100px;
+  background-color: #ebeef5;
+  overflow: hidden;
+  position: relative;
+  vertical-align: middle;
+}
+.progress-bar-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  text-align: right;
+  border-radius: 100px;
+  line-height: 1;
+  white-space: nowrap;
+  transition: width 0.1s ease;
+}
+.progress-bar-inner::after {
+  display: inline-block;
+  content: '';
+  height: 100%;
+  vertical-align: middle;
+}
+.progress-bar-text {
+  display: inline-block;
+  vertical-align: middle;
+  color: #fff;
+  font-size: 12px;
+  margin: 0 5px;
+}
+.progress-circle-text {
+  color: #fff;
+}
