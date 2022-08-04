@@ -1,11 +1,18 @@
 /*
  * @Author: whm
  * @Date: 2022-08-02 15:04:28
- * @LastEditTime: 2022-08-03 16:55:19
+ * @LastEditTime: 2022-08-04 09:10:12
  * @Description:混入
  */
 export default {
   props: {
+    //进度条百分比
+    percentage: {
+      type: Number,
+      default: 0,
+      required: true,
+      validator: val => val >= 0 && val <= 100
+    },
     // 进度条背景色
     strokeColor: {
       type: String,
@@ -25,13 +32,6 @@ export default {
     showText: {
       type: Boolean,
       default: true
-    },
-    //进度条百分比
-    percentage: {
-      type: Number,
-      default: 0,
-      required: true,
-      validator: val => val >= 0 && val <= 100
     },
     format: Function
   },
