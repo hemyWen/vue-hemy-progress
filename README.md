@@ -1,9 +1,9 @@
 # hemy-progress
 进度条(vue)
 # 实例
-<img src="./src/assets/1.jpg">
-<img src="./src/assets/2.jpg">
-<img src="./src/assets/3.jpg" >
+![线条](src/assets/1.jpg)
+![环形](src/assets/2.jpg)
+![扇形](src/assets/3.jpg)
 # 使用
 <table>
   <tr>
