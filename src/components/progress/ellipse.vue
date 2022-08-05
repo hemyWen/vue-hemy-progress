@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-05 09:55:37
- * @LastEditTime: 2022-08-05 14:56:17
+ * @LastEditTime: 2022-08-05 16:41:24
  * @Description: 椭圆
 -->
 <template>
@@ -18,6 +18,16 @@
           :style="backgroundStyle"
         />
         <ellipse :pathLength="perimeter" :cx="centerPoint.x" :cy="centerPoint.y" :rx="rx" :ry="ry" :style="style" />
+        <text
+          v-if="showText"
+          :x="centerPoint.x"
+          :y="centerPoint.y"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          :style="svgTextStyle"
+        >
+          {{ content }}
+        </text>
       </g>
     </svg>
   </div>
@@ -33,17 +43,27 @@ export default {
       return { x, y }
     },
     style() {
-      const strokeWidth = this.strokeWidth
+      const x = this.rx
+      const y = this.ry
+      const d = x > y ? x : y
+      const strokeWidth = this.isFan ? d : this.strokeWidth
       const fill = this.fillColor
       const stroke = this.strokeColor
       const strokeDasharray = this.perimeter
       const strokeDashoffset = this.dashoffset
-      return { strokeWidth, fill, stroke, strokeDasharray, strokeDashoffset }
+      const strokeLinecap = this.strokeLinecap
+      const strokeLinejoin = this.strokeLinejoin
+      return { strokeWidth, fill, stroke, strokeDasharray, strokeDashoffset, strokeLinecap, strokeLinejoin }
     },
     backgroundStyle() {
-      const strokeWidth = this.strokeWidth
+      const x = this.rx
+      const y = this.ry
+      const d = x > y ? x : y
+      const strokeWidth = this.isFan ? d : this.strokeWidth
       const stroke = this.traiColor
-      return { strokeWidth, stroke }
+      const strokeLinecap = this.strokeLinecap
+      const strokeLinejoin = this.strokeLinejoin
+      return { strokeWidth, stroke, strokeLinecap, strokeLinejoin }
     },
     //椭圆周长 L=2πb+4(a-b)
     perimeter() {

@@ -1,9 +1,7 @@
 # hemy-progress
 进度条(vue)
 # 实例
-![线条](./src/assets/1.jpg)
-![环形](./src/assets/2.jpg)
-![扇形](./src/assets/3.jpg)
+![常规例子](./src/assets/1.jpg)
 # 使用
 <table>
   <tr>
@@ -26,6 +24,13 @@
     <td>是</td>
     <td>进度条百分比</td>
     <td>100</td>
+  </tr>
+    <tr>
+    <td>fillColor</td>
+    <td>String</td>
+    <td>否</td>
+    <td>闭合图形填充颜色,type!==line生效</td>
+    <td>none</td>
   </tr>
    <tr>
     <td>strokeColor</td>
@@ -66,7 +71,14 @@
     <td>width</td>
     <td>Number</td>
     <td>否</td>
-    <td>画布大小,type=circle时生效</td>
+    <td>画布宽,当type=circle为画布大小,type=rect时为矩形宽</td>
+    <td>200</td>
+  </tr>
+  <tr>
+    <td>height</td>
+    <td>Number</td>
+    <td>否</td>
+    <td>画布高,type=rect时为矩形高</td>
     <td>200</td>
   </tr>
   <tr>
@@ -80,8 +92,15 @@
     <td>strokeLinecap</td>
     <td>String</td>
     <td>否</td>
-    <td>环形条线帽</td>
+    <td>环形条线帽,butt:正常结尾,round:圆润,square:两端为方形</td>
     <td>round</td>
+  </tr>
+   <tr>
+    <td>strokeLinejoin</td>
+    <td>String</td>
+    <td>否</td>
+    <td>线段连接处的样式,miter:正常连接,round:圆润,bevel:切除连接处的尖尖部分</td>
+    <td>miter</td>
   </tr>
   <tr>
     <td>radius</td>
@@ -96,5 +115,26 @@
     <td>否</td>
     <td>是否为扇形,type=circle时生效</td>
     <td>false</td>
+  </tr>
+  <tr>
+    <td>borderRadius</td>
+    <td>Number</td>
+    <td>否</td>
+    <td>type=rect的圆角半径</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>rx</td>
+    <td>Number</td>
+    <td>否</td>
+    <td>type=ellispe椭圆时的长半轴</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <td>ry</td>
+    <td>Number</td>
+    <td>否</td>
+    <td>type=ellispe椭圆时的短半轴</td>
+    <td>50</td>
   </tr>
 </table>

@@ -1,7 +1,7 @@
 /*
  * @Author: whm
  * @Date: 2022-08-02 15:04:28
- * @LastEditTime: 2022-08-05 10:41:43
+ * @LastEditTime: 2022-08-05 16:36:26
  * @Description:混入
  */
 export default {
@@ -95,6 +95,9 @@ export default {
       } else {
         return `${this.percentage}%`
       }
-    }
+    },
+    svgTextStyle () {
+      return { ...this.textStyle, fill: this.textStyle.color }
+    },
   }
 }

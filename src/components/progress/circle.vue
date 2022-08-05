@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-02 11:55:30
- * @LastEditTime: 2022-08-05 09:37:09
+ * @LastEditTime: 2022-08-05 16:36:42
  * @Description: 
 -->
 <template>
@@ -22,12 +22,7 @@
         :cx="centerPoint.x"
         :cy="centerPoint.y"
         :r="otherAttrs.radius"
-        :stroke-linecap="otherAttrs.strokeLinecap"
-        :fill="fillColor"
-        :stroke-width="otherAttrs.strokeWidth"
-        :stroke="strokeColor"
-        :stroke-dasharray="perimeter"
-        :stroke-dashoffset="dashoffset"
+        :style="circleStyle"
       ></circle>
       <text
         class="progress-circle-text"
@@ -36,7 +31,7 @@
         :y="centerPoint.y"
         text-anchor="middle"
         dominant-baseline="middle"
-        :style="circleTextStyle"
+        :style="svgTextStyle"
       >
         {{ content }}
       </text>
@@ -70,9 +65,7 @@ export default {
         return { radius: this.radius, strokeWidth: this.strokeWidth, strokeLinecap: this.strokeLinecap }
       }
     },
-    circleTextStyle() {
-      return { ...this.textStyle, fill: this.textStyle.color }
-    },
+
     circleStyle() {
       const { strokeLinecap, strokeWidth } = this.otherAttrs
       const fill = this.fillColor

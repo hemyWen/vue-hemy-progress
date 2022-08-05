@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-03 16:25:55
- * @LastEditTime: 2022-08-05 09:56:11
+ * @LastEditTime: 2022-08-05 16:43:28
  * @Description: 矩形
 -->
 <template>
@@ -10,6 +10,16 @@
       <g>
         <rect :x="origin" :y="origin" :width="width" :height="height" :style="outerStyle" />
         <rect :x="origin" :y="origin" :width="width" :height="height" :style="style" />
+        <text
+          v-if="showText"
+          :x="centerPoint.x"
+          :y="centerPoint.y"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          :style="svgTextStyle"
+        >
+          {{ content }}
+        </text>
       </g>
     </svg>
   </div>
@@ -20,6 +30,11 @@ export default {
   mixins: [mixin],
 
   computed: {
+    centerPoint() {
+      const x = (this.strokeWidth + this.width) / 2
+      const y = (this.strokeWidth + this.height) / 2
+      return { x, y }
+    },
     origin() {
       return this.strokeWidth / 2
     },
@@ -64,4 +79,3 @@ export default {
   }
 }
 </script>
-pt
