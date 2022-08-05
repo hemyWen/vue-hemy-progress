@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-02 11:55:30
- * @LastEditTime: 2022-08-03 17:18:29
+ * @LastEditTime: 2022-08-05 09:37:09
  * @Description: 
 -->
 <template>
@@ -14,9 +14,7 @@
         :cy="centerPoint.y"
         :r="otherAttrs.radius"
         fill="none"
-        :stroke-linecap="otherAttrs.strokeLinecap"
-        :stroke-width="otherAttrs.strokeWidth"
-        :stroke="traiColor"
+        :style="backgroundCircleStyle"
       ></circle>
       <!--  环形 -->
       <circle
@@ -25,7 +23,7 @@
         :cy="centerPoint.y"
         :r="otherAttrs.radius"
         :stroke-linecap="otherAttrs.strokeLinecap"
-        fill="none"
+        :fill="fillColor"
         :stroke-width="otherAttrs.strokeWidth"
         :stroke="strokeColor"
         :stroke-dasharray="perimeter"
@@ -49,33 +47,6 @@
 import mixin from './mixin'
 export default {
   mixins: [mixin],
-  props: {
-    //画布大小,type=circle时生效
-    width: {
-      type: Number,
-      default: 200
-    },
-    //环形宽度
-    strokeWidth: {
-      type: Number,
-      default: 10
-    },
-    //环形条线帽
-    strokeLinecap: {
-      type: String,
-      default: 'round'
-    },
-    //环形半径
-    radius: {
-      type: Number,
-      default: 50
-    },
-    //是否为扇形
-    isFan: {
-      type: Boolean,
-      default: false
-    }
-  },
   computed: {
     centerPoint() {
       const x = this.width / 2
@@ -101,6 +72,19 @@ export default {
     },
     circleTextStyle() {
       return { ...this.textStyle, fill: this.textStyle.color }
+    },
+    circleStyle() {
+      const { strokeLinecap, strokeWidth } = this.otherAttrs
+      const fill = this.fillColor
+      const stroke = this.strokeColor
+      const strokeDasharray = this.perimeter
+      const strokeDashoffset = this.dashoffset
+      return { strokeLinecap, strokeWidth, fill, stroke, strokeDasharray, strokeDashoffset }
+    },
+    backgroundCircleStyle() {
+      const { strokeLinecap, strokeWidth } = this.otherAttrs
+      const stroke = this.traiColor
+      return { strokeLinecap, strokeWidth, stroke }
     }
   },
   data() {

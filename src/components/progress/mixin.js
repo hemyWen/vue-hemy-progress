@@ -1,7 +1,7 @@
 /*
  * @Author: whm
  * @Date: 2022-08-02 15:04:28
- * @LastEditTime: 2022-08-04 09:10:12
+ * @LastEditTime: 2022-08-05 10:41:43
  * @Description:混入
  */
 export default {
@@ -13,6 +13,11 @@ export default {
       required: true,
       validator: val => val >= 0 && val <= 100
     },
+    //闭合图形颜色,type!==line生效
+    fillColor: {
+      type: String,
+      default: 'none'
+    },
     // 进度条背景色
     strokeColor: {
       type: String,
@@ -21,7 +26,7 @@ export default {
     // 	进度环背景的颜色
     traiColor: {
       type: String,
-      default: '#eee'
+      default: '#ccc'
     },
     //文字样式
     textStyle: {
@@ -33,7 +38,55 @@ export default {
       type: Boolean,
       default: true
     },
-    format: Function
+    format: Function,
+    width: {
+      type: Number,
+      default: 200
+    },
+    height: {
+      type: Number,
+      default: 200
+    },
+    //环形宽度
+    strokeWidth: {
+      type: Number,
+      default: 10
+    },
+    //环形条线帽
+    strokeLinecap: {
+      type: String,
+      default: 'butt'
+    },
+    //线段连接处的样式
+    strokeLinejoin: {
+      type: String,
+      default: 'miter'
+    },
+    //环形半径
+    radius: {
+      type: Number,
+      default: 50
+    },
+    //是否为扇形
+    isFan: {
+      type: Boolean,
+      default: false
+    },
+    //圆角半径,type=rect时生效
+    borderRadius: {
+      type: Number,
+      default: 0
+    },
+    //type=ellispe椭圆时的长半轴
+    rx: {
+      type: Number,
+      default: 100
+    },
+    //type=ellispe椭圆时的短半轴
+    ry: {
+      type: Number,
+      default: 50
+    }
   },
   computed: {
     content () {
