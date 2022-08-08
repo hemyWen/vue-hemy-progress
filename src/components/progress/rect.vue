@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-03 16:25:55
- * @LastEditTime: 2022-08-05 16:43:28
+ * @LastEditTime: 2022-08-08 14:16:51
  * @Description: 矩形
 -->
 <template>
@@ -41,7 +41,6 @@ export default {
     style() {
       const fill = this.fillColor
       const stroke = this.strokeColor
-      const traiColor = this.traiColor
       const strokeWidth = this.strokeWidth
       const strokeDasharray = (Number(this.width) + Number(this.height)) * 2
       const strokeDashoffset = (strokeDasharray * (100 - this.percentage)) / 100
@@ -50,7 +49,6 @@ export default {
       return {
         fill,
         stroke,
-        traiColor,
         strokeWidth,
         strokeDasharray,
         strokeDashoffset,
@@ -62,14 +60,14 @@ export default {
     },
     outerStyle() {
       const fill = 'none'
-      const stroke = this.traiColor
-      const strokeWidth = this.strokeWidth
+      const stroke = this.backStrokeColor
       const strokeLinecap = this.strokeLinecap
       const strokeLinejoin = this.strokeLinejoin
+      const backStrokeWidth = this.backStrokeWidth
       return {
         fill,
         stroke,
-        strokeWidth,
+        strokeWidth: backStrokeWidth,
         strokeLinecap,
         strokeLinejoin,
         rx: this.borderRadius,

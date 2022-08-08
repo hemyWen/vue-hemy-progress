@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-03 16:23:58
- * @LastEditTime: 2022-08-03 16:51:30
+ * @LastEditTime: 2022-08-08 11:57:42
  * @Description: 
 -->
 <template>
@@ -24,7 +24,7 @@ export default {
     },
     outBarStyle() {
       const style = {}
-      style.background = this.traiColor
+      style.background = this.backStrokeColor
       return style
     }
   }

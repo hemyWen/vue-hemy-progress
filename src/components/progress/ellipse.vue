@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-05 09:55:37
- * @LastEditTime: 2022-08-05 16:41:24
+ * @LastEditTime: 2022-08-08 11:59:41
  * @Description: 椭圆
 -->
 <template>
@@ -59,8 +59,8 @@ export default {
       const x = this.rx
       const y = this.ry
       const d = x > y ? x : y
-      const strokeWidth = this.isFan ? d : this.strokeWidth
-      const stroke = this.traiColor
+      const strokeWidth = this.isFan ? d : this.backStrokeWidth
+      const stroke = this.backStrokeColor
       const strokeLinecap = this.strokeLinecap
       const strokeLinejoin = this.strokeLinejoin
       return { strokeWidth, stroke, strokeLinecap, strokeLinejoin }

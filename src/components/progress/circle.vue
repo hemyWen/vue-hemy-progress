@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-02 11:55:30
- * @LastEditTime: 2022-08-05 16:36:42
+ * @LastEditTime: 2022-08-08 14:18:42
  * @Description: 
 -->
 <template>
@@ -12,7 +12,7 @@
         class="progress-circle-item"
         :cx="centerPoint.x"
         :cy="centerPoint.y"
-        :r="otherAttrs.radius"
+        :r="backgroundCircleStyle.radius"
         fill="none"
         :style="backgroundCircleStyle"
       ></circle>
@@ -75,9 +75,13 @@ export default {
       return { strokeLinecap, strokeWidth, fill, stroke, strokeDasharray, strokeDashoffset }
     },
     backgroundCircleStyle() {
-      const { strokeLinecap, strokeWidth } = this.otherAttrs
-      const stroke = this.traiColor
-      return { strokeLinecap, strokeWidth, stroke }
+      const { strokeLinecap, radius, backStrokeColor } = this.$props
+      const stroke = backStrokeColor
+      let backStrokeWidth = this.$props.backStrokeWidth
+      if (this.isFan) {
+        backStrokeWidth = radius * 2
+      }
+      return { radius, strokeLinecap, strokeWidth: backStrokeWidth, stroke }
     }
   },
   data() {

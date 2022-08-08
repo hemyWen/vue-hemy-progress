@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-02 09:22:51
- * @LastEditTime: 2022-08-05 09:59:59
+ * @LastEditTime: 2022-08-08 09:49:23
  * @Description: 进度条
 -->
 <template>
@@ -10,6 +10,7 @@
     <ProgressCircle v-else-if="type === 'circle'" v-bind="$attrs" />
     <ProgressRect v-else-if="type === 'rect'" v-bind="$attrs" />
     <ProgressEllipse v-else-if="type === 'ellipse'" v-bind="$attrs" />
+    <ProgressPath v-else-if="type === 'path'" v-bind="$attrs" />
   </div>
 </template>
 <script>
@@ -17,8 +18,9 @@ import ProgressLine from './line.vue'
 import ProgressCircle from './circle.vue'
 import ProgressRect from './rect.vue'
 import ProgressEllipse from './ellipse.vue'
+import ProgressPath from './path.vue'
 export default {
-  components: { ProgressLine, ProgressCircle, ProgressRect, ProgressEllipse },
+  components: { ProgressLine, ProgressCircle, ProgressRect, ProgressEllipse, ProgressPath },
   props: {
     type: {
       type: String,

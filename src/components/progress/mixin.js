@@ -1,7 +1,7 @@
 /*
  * @Author: whm
  * @Date: 2022-08-02 15:04:28
- * @LastEditTime: 2022-08-05 16:36:26
+ * @LastEditTime: 2022-08-08 15:43:17
  * @Description:混入
  */
 export default {
@@ -24,9 +24,14 @@ export default {
       default: '#409eff'
     },
     // 	进度环背景的颜色
-    traiColor: {
+    backStrokeColor: {
       type: String,
       default: '#ccc'
+    },
+    //背景边框的宽度
+    backStrokeWidth: {
+      type: Number,
+      default: 5
     },
     //文字样式
     textStyle: {
@@ -50,17 +55,24 @@ export default {
     //环形宽度
     strokeWidth: {
       type: Number,
-      default: 10
+      default: 5
     },
-    //环形条线帽
+    //环形条线帽 butt:正常结尾,round:圆润,square:两端为方形
     strokeLinecap: {
       type: String,
-      default: 'butt'
+      default: 'butt',
+      validator: value => ['butt', 'round', 'square'].includes(value)
     },
-    //线段连接处的样式
+    //线段连接处的样式 ,miter:正常连接,round:圆润,bevel:切除连接处的尖尖部分
     strokeLinejoin: {
       type: String,
-      default: 'miter'
+      default: 'miter',
+      validator: value => ['miter', 'round', 'bevel'].includes(value)
+    },
+    //连接处的宽度和线条宽度的比
+    strokeMiterlimit: {
+      type: Number,
+      default: 0,
     },
     //环形半径
     radius: {
@@ -86,6 +98,15 @@ export default {
     ry: {
       type: Number,
       default: 50
+    },
+    //当type=path时,自定义图形路径总长度
+    pathLength: {
+      type: Number,
+      default: 800
+    },
+    //当type=path时必填,图形的定义路径,必填
+    d: {
+      type: String,
     }
   },
   computed: {
