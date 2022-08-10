@@ -20,6 +20,31 @@
           />
         </div>
         <div class="item">
+          <h3>自定义颜色</h3>
+          <Progress
+            class="circle-item"
+            type="circle"
+            strokeLinecap="round"
+            :strokeColor="['#f56c6c', '#e6a23c', '#5cb87a', '#1989fa', '#6f7ad3']"
+            :percentage="percentage"
+            :radius="80"
+            :strokeWidth="20"
+            :backStrokeWidth="20"
+          />
+          <Progress
+            type="circle"
+            backStrokeColor="#FFC0CB"
+            :strokeColor="['green', 'skyblue', 'yellow', 'orange', 'red']"
+            :isFan="true"
+            :percentage="percentage"
+            :textStyle="{ color: '#fff', fontSize: '25px' }"
+          />
+          <div>
+            <button @click="decrease">-</button>
+            <button style="margin-left: 10px" @click="increase">+</button>
+          </div>
+        </div>
+        <div class="item">
           <h3>扇形</h3>
           <Progress
             type="circle"
@@ -124,11 +149,10 @@
         <div class="item">
           <h3>复杂图形+动画</h3>
           <Progress
-            class="progress-animation"
             d="m24.54542,111.05605l82.88714,0l25.61276,-84.69244l25.61278,84.69244l82.88713,0l-67.05698,52.34221l25.61409,84.69244l-67.05701,-52.34363l-67.057,52.34363l25.6141,-84.69244l-67.057,-52.34221l-0.00001,0z"
             type="path"
             backStrokeColor="#445469"
-            :strokeWidth="15"
+            :strokeWidth="5"
             :percentage="100"
             :width="400"
             :height="600"
@@ -186,6 +210,20 @@ export default {
   data() {
     return {
       percentage: 50
+    }
+  },
+  methods: {
+    decrease() {
+      this.percentage -= 10
+      if (this.percentage <= 0) {
+        this.percentage = 0
+      }
+    },
+    increase() {
+      this.percentage += 10
+      if (this.percentage >= 100) {
+        this.percentage = 100
+      }
     }
   }
 }

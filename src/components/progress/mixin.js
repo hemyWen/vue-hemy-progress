@@ -1,7 +1,7 @@
 /*
  * @Author: whm
  * @Date: 2022-08-02 15:04:28
- * @LastEditTime: 2022-08-08 15:43:17
+ * @LastEditTime: 2022-08-10 15:18:17
  * @Description:混入
  */
 export default {
@@ -20,7 +20,7 @@ export default {
     },
     // 进度条背景色
     strokeColor: {
-      type: String,
+      type: [String, Array, Function],
       default: '#409eff'
     },
     // 	进度环背景的颜色
@@ -102,7 +102,7 @@ export default {
     //当type=path时,自定义图形路径总长度
     pathLength: {
       type: Number,
-      default: 800
+      default: 1000
     },
     //当type=path时必填,图形的定义路径,必填
     d: {
@@ -120,5 +120,39 @@ export default {
     svgTextStyle () {
       return { ...this.textStyle, fill: this.textStyle.color }
     },
+    currentStrokeColor () {
+      if (typeof this.strokeColor === 'function') {
+        return this.strokeColor(this.percentage)
+      } else if (typeof this.strokeColor === 'string') {
+        return this.strokeColor
+      } else {
+        return this.getCurrentColor(this.percentage)
+      }
+
+    }
+  },
+  methods: {
+    getCurrentColor (percentage) {
+      const colorArray = this.getColorArray().sort((a, b) => a.percentage - b.percentage)
+      for (let i = 0; i < colorArray.length; i++) {
+        if (colorArray[i].percentage > percentage) {
+          return colorArray[i].color;
+        }
+      }
+      return colorArray[colorArray.length - 1].color;
+    },
+    getColorArray () {
+      const color = this.strokeColor
+      const span = 100 / color.length
+      return color.map((item, index) => {
+        if (typeof item === 'string') {
+          return {
+            color: item,
+            percentage: (index + 1) * span
+          }
+        }
+        return item
+      })
+    }
   }
 }

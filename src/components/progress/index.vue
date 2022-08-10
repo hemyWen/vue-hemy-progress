@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-02 09:22:51
- * @LastEditTime: 2022-08-08 09:49:23
+ * @LastEditTime: 2022-08-10 15:13:22
  * @Description: 进度条
 -->
 <template>
@@ -20,6 +20,7 @@ import ProgressRect from './rect.vue'
 import ProgressEllipse from './ellipse.vue'
 import ProgressPath from './path.vue'
 export default {
+  name: 'hemy-progress',
   components: { ProgressLine, ProgressCircle, ProgressRect, ProgressEllipse, ProgressPath },
   props: {
     type: {
@@ -30,9 +31,7 @@ export default {
   data() {
     return {}
   },
-  methods: {
-    endCount() {}
-  }
+  methods: {}
 }
 </script>
 <style scoped>

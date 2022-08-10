@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-03 16:23:58
- * @LastEditTime: 2022-08-08 11:57:42
+ * @LastEditTime: 2022-08-10 15:13:38
  * @Description: 
 -->
 <template>
@@ -19,7 +19,7 @@ export default {
     barStyle() {
       const style = {}
       style.width = this.percentage + '%'
-      style.background = this.strokeColor
+      style.background = this.currentStrokeColor
       return style
     },
     outBarStyle() {

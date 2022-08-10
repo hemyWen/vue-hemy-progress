@@ -1,5 +1,11 @@
 <!--
  * @Author: whm
+ * @Date: 2022-08-10 09:15:49
+ * @LastEditTime: 2022-08-10 15:12:39
+ * @Description: 
+-->
+<!--
+ * @Author: whm
  * @Date: 2022-08-02 11:55:30
  * @LastEditTime: 2022-08-08 14:18:42
  * @Description: 
@@ -69,7 +75,7 @@ export default {
     circleStyle() {
       const { strokeLinecap, strokeWidth } = this.otherAttrs
       const fill = this.fillColor
-      const stroke = this.strokeColor
+      const stroke = this.currentStrokeColor
       const strokeDasharray = this.perimeter
       const strokeDashoffset = this.dashoffset
       return { strokeLinecap, strokeWidth, fill, stroke, strokeDasharray, strokeDashoffset }

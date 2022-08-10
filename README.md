@@ -58,9 +58,19 @@
   </tr>
    <tr>
     <td>strokeColor</td>
-    <td>String</td>
+    <td>String,Function,Array</td>
     <td>否</td>
-    <td>进度条颜色</td>
+    <td>进度条颜色,可接受字符串,参数为percentage的函数,数组,
+        ['#f56c6c','#e6a23c','#5cb87a','#1989fa','#6f7ad3']
+        或者
+        [
+          {color: '#f56c6c', percentage: 20},
+          {color: '#e6a23c', percentage: 40},
+          {color: '#5cb87a', percentage: 60},
+          {color: '#1989fa', percentage: 80},
+          {color: '#6f7ad3', percentage: 100}
+        ]
+    </td>
     <td>#409eff</td>
   </tr>
   <tr>

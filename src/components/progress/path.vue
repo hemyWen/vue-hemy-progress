@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-08 09:00:08
- * @LastEditTime: 2022-08-08 14:21:42
+ * @LastEditTime: 2022-08-10 15:14:10
  * @Description: 复杂图形
 -->
 <template>
@@ -20,14 +20,13 @@ export default {
   mixins: [mixin],
   computed: {
     style() {
-      const { fillColor, strokeColor, strokeWidth, pathLength, strokeLinecap, strokeLinejoin } = this.$props
+      const { fillColor, strokeWidth, pathLength, strokeLinecap, strokeLinejoin } = this.$props
       const strokeDasharray = pathLength
       const strokeDashoffset = strokeDasharray - strokeDasharray * (this.percentage / 100)
       return {
         fill: fillColor,
-        stroke: strokeColor,
+        stroke: this.currentStrokeColor,
         strokeWidth,
-        strokeColor,
         strokeDasharray,
         strokeDashoffset,
         strokeLinecap,
@@ -37,7 +36,11 @@ export default {
     backgroundStyle() {
       const { backStrokeColor, backStrokeWidth, strokeLinejoin } = this.$props
 
-      return { stroke: backStrokeColor, strokeWidth: backStrokeWidth, strokeLinejoin }
+      return {
+        stroke: backStrokeColor,
+        strokeWidth: backStrokeWidth,
+        strokeLinejoin
+      }
     }
   }
 }
