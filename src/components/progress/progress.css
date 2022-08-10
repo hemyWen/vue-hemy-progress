@@ -37,3 +37,14 @@
 .progress-circle-text {
   color: #fff;
 }
+.progress-circle__item {
+  transform: rotate(-90deg);
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.progress-circle__item,
+.progress-rect__item,
+.progress-ellipse__item,
+.progress-path__item {
+  transition: stroke-dashoffset 0.6s ease 0s, stroke 0.6s ease 0s;
+}

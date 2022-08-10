@@ -1,16 +1,17 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-03 16:25:55
- * @LastEditTime: 2022-08-10 15:14:20
+ * @LastEditTime: 2022-08-10 15:55:45
  * @Description: 矩形
 -->
 <template>
   <div class="progress-rect">
     <svg :width="strokeWidth + width" :height="strokeWidth + height">
       <g>
-        <rect :x="origin" :y="origin" :width="width" :height="height" :style="outerStyle" />
-        <rect :x="origin" :y="origin" :width="width" :height="height" :style="style" />
+        <rect class="progress-rect__back" :x="origin" :y="origin" :width="width" :height="height" :style="outerStyle" />
+        <rect class="progress-rect__item" :x="origin" :y="origin" :width="width" :height="height" :style="style" />
         <text
+          class="progress-ellipse__text"
           v-if="showText"
           :x="centerPoint.x"
           :y="centerPoint.y"

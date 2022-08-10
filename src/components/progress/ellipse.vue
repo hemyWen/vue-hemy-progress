@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-05 09:55:37
- * @LastEditTime: 2022-08-10 15:12:45
+ * @LastEditTime: 2022-08-10 15:53:31
  * @Description: 椭圆
 -->
 <template>
@@ -9,6 +9,7 @@
     <svg :width="width" :height="height">
       <g>
         <ellipse
+          class="progress-ellipse__back"
           :pathLength="perimeter"
           :cx="centerPoint.x"
           :cy="centerPoint.y"
@@ -17,8 +18,17 @@
           fill="none"
           :style="backgroundStyle"
         />
-        <ellipse :pathLength="perimeter" :cx="centerPoint.x" :cy="centerPoint.y" :rx="rx" :ry="ry" :style="style" />
+        <ellipse
+          class="progress-ellipse__item"
+          :pathLength="perimeter"
+          :cx="centerPoint.x"
+          :cy="centerPoint.y"
+          :rx="rx"
+          :ry="ry"
+          :style="style"
+        />
         <text
+          class="progress-ellipse__text"
           v-if="showText"
           :x="centerPoint.x"
           :y="centerPoint.y"

@@ -25,7 +25,7 @@
             class="circle-item"
             type="circle"
             strokeLinecap="round"
-            :strokeColor="['#f56c6c', '#e6a23c', '#5cb87a', '#1989fa', '#6f7ad3']"
+            :strokeColor="['#6f7ad3', '#1989fa', '#5cb87a', '#e6a23c', '#f56c6c']"
             :percentage="percentage"
             :radius="80"
             :strokeWidth="20"
@@ -34,10 +34,22 @@
           <Progress
             type="circle"
             backStrokeColor="#FFC0CB"
-            :strokeColor="['green', 'skyblue', 'yellow', 'orange', 'red']"
+            :strokeColor="['#6f7ad3', '#1989fa', '#5cb87a', '#e6a23c', '#f56c6c']"
             :isFan="true"
             :percentage="percentage"
             :textStyle="{ color: '#fff', fontSize: '25px' }"
+          />
+          <Progress
+            type="rect"
+            :percentage="percentage"
+            :width="200"
+            :height="100"
+            :strokeWidth="10"
+            :backStrokeWidth="10"
+            strokeColor="#07c160"
+            strokeLinecap="square"
+            strokeLinejoin="miter"
+            :strokeColor="['#6f7ad3', '#1989fa', '#5cb87a', '#e6a23c', '#f56c6c']"
           />
           <div>
             <button @click="decrease">-</button>
@@ -237,7 +249,7 @@ export default {
   width: 300px;
   text-align: center;
 }
-.progress-animation .path {
+.progress-animation .progress-path__item {
   animation: mypath 5s linear infinite;
 }
 @keyframes mypath {

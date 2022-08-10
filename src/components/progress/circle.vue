@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-10 09:15:49
- * @LastEditTime: 2022-08-10 15:12:39
+ * @LastEditTime: 2022-08-10 15:51:55
  * @Description: 
 -->
 <!--
@@ -15,7 +15,7 @@
     <svg :width="width" :height="width">
       <!--  环形背景 -->
       <circle
-        class="progress-circle-item"
+        class="progress-circle__back"
         :cx="centerPoint.x"
         :cy="centerPoint.y"
         :r="backgroundCircleStyle.radius"
@@ -24,7 +24,7 @@
       ></circle>
       <!--  环形 -->
       <circle
-        class="progress-circle-item"
+        class="progress-circle__item"
         :cx="centerPoint.x"
         :cy="centerPoint.y"
         :r="otherAttrs.radius"
@@ -96,11 +96,3 @@ export default {
   methods: {}
 }
 </script>
-<style>
-.progress-circle-item {
-  transform: rotate(-90deg);
-  transform-origin: center;
-  transform-box: fill-box;
-  transition: width 0.1s ease;
-}
-</style>
