@@ -1,6 +1,6 @@
 {
-  "name": "vue-hemy-progress",
-  "version": "1.0.3",
+  "name": "hemy-progress",
+  "version": "1.1.1",
   "private": false,
   "description": "基于svg开发的vue进度条组件,svg progress for vue",
   "keywords": [
@@ -10,6 +10,10 @@
   ],
   "author": "hemyWen",
   "license": "MIT",
+  "main": "lib/hemy-progress.umd.min.js",
+  "files": [
+    "lib/*"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

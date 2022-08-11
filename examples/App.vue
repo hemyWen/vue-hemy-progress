@@ -212,7 +212,7 @@
 </template>
 
 <script>
-import Progress from '../packages/progress'
+import Progress from '../packages/components'
 export default {
   name: 'App',
   components: {

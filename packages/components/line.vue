@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-03 16:23:58
- * @LastEditTime: 2022-08-10 15:13:38
+ * @LastEditTime: 2022-08-11 11:28:49
  * @Description: 
 -->
 <template>
@@ -12,7 +12,7 @@
   </div>
 </template>
 <script>
-import mixin from './mixin'
+import mixin from './mixin.js'
 export default {
   mixins: [mixin],
   computed: {

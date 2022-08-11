@@ -1,29 +1,17 @@
 /*
  * @Author: whm
  * @Date: 2022-08-11 09:37:53
- * @LastEditTime: 2022-08-11 09:45:38
+ * @LastEditTime: 2022-08-11 14:54:28
  * @Description: 
  */
 
-import HemyProgress from './progress/index'
-const components = [
-  HemyProgress
-]
-// 定义 install 方法
-const install = function (Vue) {
-  if (install.installed) return
-  install.installed = true
-  // 遍历并注册全局组件
-  components.map(component => {
-    Vue.component(component.name, component)
-  })
-}
+import HemyProgress from './components/index.vue'
 
 if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue)
+  window.Vue.component('HemyProgress', HemyProgress)
+}
+HemyProgress.install = function (Vue) {
+  Vue.component(HemyProgress.name, HemyProgress)
 }
 
-export default {
-  install,
-  ...components
-}
+export default HemyProgress
