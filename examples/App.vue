@@ -212,8 +212,7 @@
 </template>
 
 <script>
-import Progress from './components/progress/index.vue'
-
+import Progress from '../packages/progress'
 export default {
   name: 'App',
   components: {
