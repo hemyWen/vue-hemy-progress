@@ -1,6 +1,7 @@
 # hemy-progress
 使用svg制作进度条,线条形,环形,扇形,矩形,椭圆的常规图形进度条,也可以制作其他复杂图形的进度条,三角形,多边形,自定义图形等
 # 实例
+demo查看 [源码地址](https://github.com/hemyWen/hemy-progress)
 ### 常规图形
 ![常规例子](./examples/assets/1.jpg)
 ### 自定义颜色配置
