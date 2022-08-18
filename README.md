@@ -2,7 +2,7 @@
  - [文档](https://hemywen.github.io/projects/hemy-progress.html)
  - [github](https://github.com/hemyWen/hemy-progress)
 # hemy-progress
-使用svg制作进度条,线条形,环形,扇形,矩形,椭圆的常规图形进度条,也可以制作其他复杂图形的进度条,三角形,多边形,自定义图形等
+使用svg制作vue进度条,线条形,环形,扇形,矩形,椭圆的常规图形进度条,也可以制作其他复杂图形的进度条,三角形,多边形,自定义图形等
 # 安装
 通过npm
 ```
