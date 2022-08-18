@@ -1,7 +1,7 @@
 /*
  * @Author: whm
  * @Date: 2022-08-02 15:04:28
- * @LastEditTime: 2022-08-10 15:18:17
+ * @LastEditTime: 2022-08-18 10:17:01
  * @Description:混入
  */
 export default {
@@ -26,7 +26,7 @@ export default {
     // 	进度环背景的颜色
     backStrokeColor: {
       type: String,
-      default: '#ccc'
+      default: '#eee'
     },
     //背景边框的宽度
     backStrokeWidth: {
@@ -107,9 +107,30 @@ export default {
     //当type=path时必填,图形的定义路径,必填
     d: {
       type: String,
+    },
+    //是否为虚线
+    isDashed: {
+      type: Boolean,
+      default: false
+    },
+    //背景是否为虚线
+    isBackDashed: {
+      type: Boolean,
+      default: false
+    },
+    //虚线长度
+    dashedLength: {
+      type: Number,
+      default: 5
+    },
+    //虚线间隔
+    dashedDistance: {
+      type: Number,
+      default: 5
     }
   },
   computed: {
+    //文字内容
     content () {
       if (typeof this.format === 'function') {
         return this.format(this.percentage) || ''
@@ -117,9 +138,11 @@ export default {
         return `${this.percentage}%`
       }
     },
+    //文字样式
     svgTextStyle () {
       return { ...this.textStyle, fill: this.textStyle.color }
     },
+    //当前进度条颜色
     currentStrokeColor () {
       if (typeof this.strokeColor === 'function') {
         return this.strokeColor(this.percentage)
@@ -129,9 +152,81 @@ export default {
         return this.getCurrentColor(this.percentage)
       }
 
-    }
+    },
+    //虚线长度和间隙
+    strokeDasharray () {
+      if (this.isDashed) {
+        return this.dashedLength + ' ' + this.dashedDistance
+      }
+      return this.perimeter
+    },
+    //当前进度(虚线偏移量)
+    strokeDashoffset () {
+      const dashoffset = '' + (this.perimeter * (100 - this.percentage)) / 100
+      return dashoffset
+    },
+    //进度条样式
+    style () {
+      const { fillColor, strokeWidth, strokeLinecap, strokeLinejoin, radius, isFan } = this.$props
+      const strokeDasharray = this.strokeDasharray
+      const stroke = this.currentStrokeColor
+      let style = {
+        fill: fillColor,
+        stroke,
+        strokeWidth,
+        strokeDasharray,
+        strokeLinecap,
+        strokeLinejoin
+      }
+      if (this.isDashed) {
+        style.mask = `url(#${this.maskID})`
+      } else {
+        style.strokeDashoffset = this.strokeDashoffset
+      }
+      //type=circle的扇形时
+      if (this.type === 'circle' && isFan) {
+        style.strokeWidth = radius * 2
+        style.strokeLinecap = 'butt'
+      }
+      //当type=rect时
+      if (this.type === 'rect') {
+        style.rx = this.borderRadius
+        style.ry = this.borderRadius
+      }
+      return style
+    },
+    //背景样式
+    backgroundStyle () {
+      const { backStrokeColor, backStrokeWidth, strokeLinejoin, radius, isFan } = this.$props
+      let style = {
+        strokeLinejoin,
+        stroke: backStrokeColor,
+        strokeWidth: backStrokeWidth
+      }
+      if (this.isDashed) {
+        style.strokeDasharray = this.strokeDasharray
+      }
+      if (this.type === 'circle' && isFan) {
+        style.strokeWidth = radius * 2
+      }
+      //当type=rect时
+      if (this.type === 'rect') {
+        style.rx = this.borderRadius
+        style.ry = this.borderRadius
+      }
+      return style
+    },
+    //蒙版样式
+    maskStyle () {
+      const stroke = 'white'
+      const strokeWidth = this.strokeWidth
+      const strokeDasharray = this.perimeter
+      const strokeDashoffset = this.strokeDashoffset
+      return { stroke, strokeDasharray, strokeDashoffset, strokeWidth }
+    },
   },
   methods: {
+    //获取当前颜色
     getCurrentColor (percentage) {
       const colorArray = this.getColorArray().sort((a, b) => a.percentage - b.percentage)
       for (let i = 0; i < colorArray.length; i++) {
@@ -141,6 +236,7 @@ export default {
       }
       return colorArray[colorArray.length - 1].color;
     },
+    //获取color数组
     getColorArray () {
       const color = this.strokeColor
       const span = 100 / color.length

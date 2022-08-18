@@ -20,7 +20,54 @@
           />
         </div>
         <div class="item">
+          <h3>虚线样式</h3>
+          <Progress
+            type="line"
+            :isDashed="true"
+            :isBackDashed="true"
+            :percentage="percentage"
+            strokeColor="blue"
+            backStrokeColor="skyblue"
+          />
+          <Progress
+            type="circle"
+            strokeColor="blue"
+            backStrokeColor="skyblue"
+            :percentage="percentage"
+            :radius="80"
+            :backStrokeWidth="20"
+            :strokeWidth="20"
+            :isDashed="true"
+          />
+          <Progress
+            type="rect"
+            :isDashed="true"
+            :percentage="percentage"
+            :width="200"
+            :height="100"
+            :backStrokeWidth="20"
+            :strokeWidth="20"
+            strokeColor="blue"
+            backStrokeColor="skyblue"
+          />
+          <Progress
+            type="ellipse"
+            :isDashed="true"
+            :strokeColor="['#6f7ad3', '#1989fa', '#5cb87a', '#e6a23c', '#f56c6c']"
+            backStrokeColor="skyblue"
+            :percentage="percentage"
+            :backStrokeWidth="20"
+            :strokeWidth="20"
+            :width="400"
+          />
+        </div>
+        <div class="item">
           <h3>自定义颜色</h3>
+          <Progress
+            type="line"
+            :percentage="percentage"
+            :strokeColor="['#6f7ad3', '#1989fa', '#5cb87a', '#e6a23c', '#f56c6c']"
+          />
           <Progress
             class="circle-item"
             type="circle"
@@ -39,6 +86,7 @@
             :percentage="percentage"
             :textStyle="{ color: '#fff', fontSize: '25px' }"
           />
+
           <Progress
             type="rect"
             :percentage="percentage"
@@ -107,7 +155,14 @@
         </div>
         <div class="item">
           <h3>椭圆</h3>
-          <Progress type="ellipse" backStrokeColor="#445469" :percentage="20" :width="400" />
+          <Progress
+            type="ellipse"
+            backStrokeColor="#445469"
+            :percentage="20"
+            :width="400"
+            :strokeWidth="10"
+            :backStrokeWidth="10"
+          />
         </div>
       </div>
       <div class="complex">
@@ -243,6 +298,7 @@ export default {
 .normal,
 .complex {
   display: flex;
+  overflow: auto;
 }
 .item {
   width: 300px;
