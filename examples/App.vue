@@ -22,6 +22,7 @@
         <div class="item">
           <h3>虚线样式</h3>
           <Progress
+            style="width: 295px"
             type="line"
             :isDashed="true"
             :isBackDashed="true"

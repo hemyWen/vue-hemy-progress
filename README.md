@@ -19,19 +19,22 @@ npm install hemy-progress
 />
 ```
 ### 常规图形
-![常规例子](./examples/assets/1.jpg)
+![常规例子](https://raw.githubusercontent.com/hemyWen/hemy-progress/main/examples/assets/1.jpg)
 ### 虚线
-![常规例子](./examples/assets/2.jpg)
-虚线需要设置合适虚线长度和虚线间隔,以便最后一个虚线
+![常规例子](https://raw.githubusercontent.com/hemyWen/hemy-progress/main/examples/assets/2.jpg)
+
+<font color='red'>当type为line时,那虚线需要设置合适虚线长度和虚线间隔,以便最后一个虚线刚好落在容器的最后面,例:虚线宽度和间隔都为5px,则进度条(容器)总宽度可以设为105px 115px 125px...
+</font> 
+
 ### 自定义颜色配置
-![自定义颜色配置](./examples/assets/3.gif)
+![自定义颜色配置](https://raw.githubusercontent.com/hemyWen/hemy-progress/main/examples/assets/3.gif)
 ### 复杂图形
-![复杂例子](./examples/assets/1.gif)
+![复杂例子](https://raw.githubusercontent.com/hemyWen/hemy-progress/main/examples/assets/1.gif)
 
 #### 复杂图形的制作
 可在在线的svg制作工具上,选择或者画出想要的图形,比如:菜鸟工具 https://c.runoob.com/more/svgeditor/
 复制画布的width和height和最后一个path的d值到组件上,设置合适的pathLength,再设置其他自己喜欢的属性值
-![复杂图形制作](./examples/assets/2.gif)
+![复杂图形制作](https://raw.githubusercontent.com/hemyWen/hemy-progress/main/examples/assets/2.gif)
 例:
 ``` 
 <Progress
