@@ -58,7 +58,7 @@
             :percentage="percentage"
             :backStrokeWidth="20"
             :strokeWidth="20"
-            :width="400"
+            :width="300"
           />
         </div>
         <div class="item">
@@ -159,7 +159,7 @@
             type="ellipse"
             backStrokeColor="#445469"
             :percentage="20"
-            :width="400"
+            :width="300"
             :strokeWidth="10"
             :backStrokeWidth="10"
           />

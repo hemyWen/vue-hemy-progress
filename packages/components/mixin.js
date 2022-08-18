@@ -1,7 +1,7 @@
 /*
  * @Author: whm
  * @Date: 2022-08-02 15:04:28
- * @LastEditTime: 2022-08-18 10:17:01
+ * @LastEditTime: 2022-08-18 11:02:11
  * @Description:混入
  */
 export default {
@@ -52,7 +52,7 @@ export default {
       type: Number,
       default: 200
     },
-    //环形宽度
+    //进度条宽度
     strokeWidth: {
       type: Number,
       default: 5
@@ -116,7 +116,7 @@ export default {
     //背景是否为虚线
     isBackDashed: {
       type: Boolean,
-      default: false
+      default: true
     },
     //虚线长度
     dashedLength: {
@@ -203,7 +203,7 @@ export default {
         stroke: backStrokeColor,
         strokeWidth: backStrokeWidth
       }
-      if (this.isDashed) {
+      if (this.isDashed && this.isBackDashed) {
         style.strokeDasharray = this.strokeDasharray
       }
       if (this.type === 'circle' && isFan) {

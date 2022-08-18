@@ -1,5 +1,6 @@
 ### 在线文档
  - [文档](https://hemywen.github.io/projects/hemy-progress.html)
+ - [github](https://github.com/hemyWen/hemy-progress)
 # hemy-progress
 使用svg制作进度条,线条形,环形,扇形,矩形,椭圆的常规图形进度条,也可以制作其他复杂图形的进度条,三角形,多边形,自定义图形等
 # 安装
@@ -19,6 +20,9 @@ npm install hemy-progress
 ```
 ### 常规图形
 ![常规例子](./examples/assets/1.jpg)
+### 虚线
+![常规例子](./examples/assets/2.jpg)
+虚线需要设置合适虚线长度和虚线间隔,以便最后一个虚线
 ### 自定义颜色配置
 ![自定义颜色配置](./examples/assets/3.gif)
 ### 复杂图形
@@ -146,7 +150,7 @@ npm install hemy-progress
     <td>strokeWidth</td>
     <td>Number</td>
     <td>否</td>
-    <td>环形宽度,type=circle时生效</td>
+    <td>进度条宽度</td>
     <td>10</td>
   </tr>
   <tr>
@@ -219,4 +223,33 @@ npm install hemy-progress
     <td>当type=path,图形的定义路径,必填</td>
     <td></td>
   </tr>
+    <tr>
+    <td>isDashed</td>
+    <td>Boolean</td>
+    <td>否</td>
+    <td>进度条是否为虚线</td>
+    <td>false</td>
+  </tr>
+    <tr>
+    <td>isBackDashed</td>
+    <td>Boolean</td>
+    <td>否</td>
+    <td>背景是否为虚线</td>
+    <td>true</td>
+  </tr>
+     <tr>
+    <td>dashedLength</td>
+    <td>Number</td>
+    <td>否</td>
+    <td>虚线长度</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>dashedDistance</td>
+    <td>Number</td>
+    <td>否</td>
+    <td>虚线间隔</td>
+    <td>5</td>
+  </tr>
+
 </table>
