@@ -1,7 +1,7 @@
 /*
  * @Author: whm
  * @Date: 2022-08-02 15:04:28
- * @LastEditTime: 2022-08-18 11:02:11
+ * @LastEditTime: 2022-08-23 11:57:38
  * @Description:混入
  */
 export default {
@@ -127,6 +127,11 @@ export default {
     dashedDistance: {
       type: Number,
       default: 5
+    },
+    //是否使用过度动画
+    isTransition: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
@@ -193,6 +198,9 @@ export default {
         style.rx = this.borderRadius
         style.ry = this.borderRadius
       }
+      if (this.isTransition) {
+        style.transition = 'stroke-dashoffset 0.6s ease'
+      }
       return style
     },
     //背景样式
@@ -222,7 +230,11 @@ export default {
       const strokeWidth = this.strokeWidth
       const strokeDasharray = this.perimeter
       const strokeDashoffset = this.strokeDashoffset
-      return { stroke, strokeDasharray, strokeDashoffset, strokeWidth }
+      const style = { stroke, strokeDasharray, strokeDashoffset, strokeWidth }
+      if (this.isTransition) {
+        style.transition = 'stroke-dashoffset 0.6s ease'
+      }
+      return style
     },
   },
   methods: {

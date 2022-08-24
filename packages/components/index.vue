@@ -1,16 +1,12 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-02 09:22:51
- * @LastEditTime: 2022-08-17 15:41:39
+ * @LastEditTime: 2022-08-22 11:57:19
  * @Description: 进度条
 -->
 <template>
   <div class="progress-container">
-    <ProgressLine v-if="type === 'line'" v-bind="$attrs" :type="type" />
-    <ProgressCircle v-else-if="type === 'circle'" v-bind="$attrs" :type="type" />
-    <ProgressRect v-else-if="type === 'rect'" v-bind="$attrs" :type="type" />
-    <ProgressEllipse v-else-if="type === 'ellipse'" v-bind="$attrs" :type="type" />
-    <ProgressPath v-else-if="type === 'path'" v-bind="$attrs" :type="type" />
+    <component :is="componentName" v-bind="$attrs" :type="type"></component>
   </div>
 </template>
 <script>
@@ -26,6 +22,24 @@ export default {
     type: {
       type: String,
       default: 'line'
+    }
+  },
+  computed: {
+    componentName() {
+      switch (this.type) {
+        case 'line':
+          return 'ProgressLine'
+        case 'circle':
+          return 'ProgressCircle'
+        case 'rect':
+          return 'ProgressRect'
+        case 'ellipse':
+          return 'ProgressEllipse'
+        case 'path':
+          return 'ProgressPath'
+        default:
+          return 'div'
+      }
     }
   },
   data() {

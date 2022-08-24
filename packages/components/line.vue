@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-03 16:23:58
- * @LastEditTime: 2022-08-18 10:13:34
+ * @LastEditTime: 2022-08-22 11:57:39
  * @Description: 
 -->
 <template>
@@ -51,6 +51,7 @@ export default {
       const style = {}
       style.width = this.percentage + '%'
       style.background = this.currentStrokeColor
+      style.transition = this.isTransition ? 'width 0.6s ease' : ''
       return style
     },
     outBarStyle() {

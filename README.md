@@ -36,7 +36,7 @@ npm install hemy-progress
 复制画布的width和height和最后一个path的d值到组件上,设置合适的pathLength,再设置其他自己喜欢的属性值
 ![复杂图形制作](https://raw.githubusercontent.com/hemyWen/hemy-progress/main/examples/assets/2.gif)
 例:
-``` 
+``` html
 <Progress
   d="m205.58865,207.26894c4.72522,-5.9053 9.24437,-12.71333 13.22542,-18.82466l-119.28624,-2.80423l-16.36196,24.14976l-51.83504,-2.07417c6.49499,-10.99509 13.61002,-23.91136 18.88519,-33.61275l-18.76473,-32.61405l55.30683,0l11.25319,20.37749l121.78832,0l-15.1069,-20.33188c4.66219,-6.40735 11.56197,-14.95808 15.30486,-19.44136l40.95944,51.81951l-41.05261,52.62338l-14.31579,-19.26703l0.00002,0.00001z"
   type="path"
@@ -66,7 +66,7 @@ npm install hemy-progress
     <td>type</td>
     <td>String</td>
     <td>否</td>
-    <td>进度条类型,line=线条,circle=环形</td>
+    <td>进度条类型,line=线条,circle=环形,ellipse=椭圆,rect=矩形,path=自定义图形</td>
     <td>line</td>
   </tr>
   <tr>
