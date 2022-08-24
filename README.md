@@ -254,5 +254,11 @@ npm install hemy-progress
     <td>虚线间隔</td>
     <td>5</td>
   </tr>
-
+  <tr>
+    <td>isTransition</td>
+    <td>Boolean</td>
+    <td>否</td>
+    <td>是否有过度动画</td>
+    <td>true</td>
+  </tr>
 </table>
