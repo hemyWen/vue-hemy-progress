@@ -1,7 +1,7 @@
 /*
  * @Author: whm
  * @Date: 2022-08-02 15:04:28
- * @LastEditTime: 2022-08-23 11:57:38
+ * @LastEditTime: 2022-09-02 18:12:51
  * @Description:混入
  */
 export default {
@@ -11,7 +11,7 @@ export default {
       type: Number,
       default: 0,
       required: true,
-      validator: val => val >= 0 && val <= 100
+      validator: (val) => val >= 0 && val <= 100
     },
     //闭合图形颜色,type!==line生效
     fillColor: {
@@ -61,18 +61,18 @@ export default {
     strokeLinecap: {
       type: String,
       default: 'butt',
-      validator: value => ['butt', 'round', 'square'].includes(value)
+      validator: (value) => ['butt', 'round', 'square'].includes(value)
     },
     //线段连接处的样式 ,miter:正常连接,round:圆润,bevel:切除连接处的尖尖部分
     strokeLinejoin: {
       type: String,
       default: 'miter',
-      validator: value => ['miter', 'round', 'bevel'].includes(value)
+      validator: (value) => ['miter', 'round', 'bevel'].includes(value)
     },
     //连接处的宽度和线条宽度的比
     strokeMiterlimit: {
       type: Number,
-      default: 0,
+      default: 0
     },
     //环形半径
     radius: {
@@ -92,7 +92,7 @@ export default {
     //type=ellispe椭圆时的长半轴
     rx: {
       type: Number,
-      default: 100
+      default: 90
     },
     //type=ellispe椭圆时的短半轴
     ry: {
@@ -106,7 +106,7 @@ export default {
     },
     //当type=path时必填,图形的定义路径,必填
     d: {
-      type: String,
+      type: String
     },
     //是否为虚线
     isDashed: {
@@ -156,7 +156,6 @@ export default {
       } else {
         return this.getCurrentColor(this.percentage)
       }
-
     },
     //虚线长度和间隙
     strokeDasharray () {
@@ -172,7 +171,14 @@ export default {
     },
     //进度条样式
     style () {
-      const { fillColor, strokeWidth, strokeLinecap, strokeLinejoin, radius, isFan } = this.$props
+      const {
+        fillColor,
+        strokeWidth,
+        strokeLinecap,
+        strokeLinejoin,
+        radius,
+        isFan,
+      } = this.$props
       const strokeDasharray = this.strokeDasharray
       const stroke = this.currentStrokeColor
       let style = {
@@ -235,7 +241,7 @@ export default {
         style.transition = 'stroke-dashoffset 0.6s ease'
       }
       return style
-    },
+    }
   },
   methods: {
     //获取当前颜色
@@ -243,10 +249,10 @@ export default {
       const colorArray = this.getColorArray().sort((a, b) => a.percentage - b.percentage)
       for (let i = 0; i < colorArray.length; i++) {
         if (colorArray[i].percentage > percentage) {
-          return colorArray[i].color;
+          return colorArray[i].color
         }
       }
-      return colorArray[colorArray.length - 1].color;
+      return colorArray[colorArray.length - 1].color
     },
     //获取color数组
     getColorArray () {
