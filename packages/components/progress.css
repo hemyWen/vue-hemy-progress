@@ -1,6 +1,3 @@
-.progress-container {
-  width: 100%;
-}
 .progress-bar-outer {
   width: 100%;
   height: 30px;
@@ -68,4 +65,13 @@
   transform: rotate(-90deg);
   transform-origin: center;
   transform-box: fill-box;
+}
+.svg-container {
+  position: relative;
+}
+.svg-container .slot-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }

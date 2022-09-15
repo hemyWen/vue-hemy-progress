@@ -6,7 +6,7 @@
           <h3>线形</h3>
           <Progress type="line" :percentage="50" />
           <br />
-          <Progress type="line" :percentage="40" strokeColor="red" backStrokeColor="#ccc" />
+          <Progress type="line" :percentage="40" strokeColor="red" backStrokeColor="#ccc" :borderRadius="20" />
         </div>
         <div class="item">
           <h3>环形</h3>
@@ -29,6 +29,7 @@
             :percentage="percentage"
             strokeColor="blue"
             backStrokeColor="skyblue"
+            :borderRadius="20"
           />
           <Progress
             type="circle"
@@ -68,6 +69,7 @@
             type="line"
             :percentage="percentage"
             :strokeColor="['#6f7ad3', '#1989fa', '#5cb87a', '#e6a23c', '#f56c6c']"
+            :borderRadius="20"
           />
           <Progress
             class="circle-item"
@@ -164,6 +166,24 @@
             :strokeWidth="10"
             :backStrokeWidth="10"
           />
+        </div>
+      </div>
+      <div class="slot">
+        <div class="item">
+          <h3>插槽</h3>
+          <Progress type="line" :percentage="40" strokeColor="red" backStrokeColor="#ccc" :borderRadius="20">
+            <div style="text-align: center">
+              <img src="./assets/logo.png" style="width: 20px; height: 20px" />
+            </div>
+          </Progress>
+        </div>
+        <div class="item">
+          <h3></h3>
+          <Progress class="circle-item" type="circle" backStrokeColor="#ffff66" strokeColor="#48D1CC" :percentage="60">
+            <div style="text-align: center">
+              <img src="./assets/logo.png" style="width: 20px; height: 20px" />
+            </div>
+          </Progress>
         </div>
       </div>
       <div class="complex">
@@ -298,7 +318,8 @@ export default {
 </script>
 <style>
 .normal,
-.complex {
+.complex,
+.slot {
   display: flex;
   overflow: auto;
 }

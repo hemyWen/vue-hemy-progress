@@ -1,11 +1,11 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-03 16:25:55
- * @LastEditTime: 2022-08-22 11:57:52
+ * @LastEditTime: 2022-09-15 10:29:05
  * @Description: 矩形
 -->
 <template>
-  <div class="progress-rect">
+  <div class="svg-container">
     <svg :width="strokeWidth + width" :height="strokeWidth + height">
       <mask v-if="isDashed" :id="maskID">
         <rect
@@ -30,8 +30,8 @@
         />
         <rect class="progress-rect__item" :x="origin" :y="origin" :width="width" :height="height" :style="style" />
         <text
-          class="progress-ellipse__text"
-          v-if="showText"
+          class="progress-rect__text"
+          v-if="isShowText"
           :x="centerPoint.x"
           :y="centerPoint.y"
           text-anchor="middle"
@@ -42,6 +42,9 @@
         </text>
       </g>
     </svg>
+    <div class="slot-container">
+      <slot></slot>
+    </div>
   </div>
 </template>
 <script>

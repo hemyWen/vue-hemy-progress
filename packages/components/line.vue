@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-03 16:23:58
- * @LastEditTime: 2022-08-22 11:57:39
+ * @LastEditTime: 2022-09-15 10:20:43
  * @Description: 
 -->
 <template>
@@ -15,7 +15,12 @@
       </div>
     </div>
     <div v-else class="progress-bar-inner" :style="barStyle">
-      <div v-if="showText" class="progress-bar-text" :style="textStyle">{{ content }}</div>
+      <div v-if="isShowText" class="progress-bar-text" :style="textStyle">
+        {{ content }}
+      </div>
+      <div v-else class="progress-bar-text" :style="textStyle">
+        <slot></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -52,14 +57,17 @@ export default {
       style.width = this.percentage + '%'
       style.background = this.currentStrokeColor
       style.transition = this.isTransition ? 'width 0.6s ease' : ''
+      style.borderRadius = this.borderRadius + 'px'
+      style.height = this.lineHeight + 'px'
       return style
     },
     outBarStyle() {
       const style = {}
-      if (this.isDashed && this.isBackDashed) {
-        return style
+      if (!this.isDashed) {
+        style.background = this.backStrokeColor
       }
-      style.background = this.backStrokeColor
+      style.borderRadius = this.borderRadius + 'px'
+      style.height = this.lineHeight + 'px'
       return style
     }
   },

@@ -1,7 +1,7 @@
 /*
  * @Author: whm
  * @Date: 2022-08-02 15:04:28
- * @LastEditTime: 2022-09-02 18:12:51
+ * @LastEditTime: 2022-09-15 10:20:24
  * @Description:混入
  */
 export default {
@@ -132,6 +132,11 @@ export default {
     isTransition: {
       type: Boolean,
       default: true
+    },
+    //type=line时的高度
+    lineHeight: {
+      type: Number,
+      default: 30
     }
   },
   computed: {
@@ -241,6 +246,10 @@ export default {
         style.transition = 'stroke-dashoffset 0.6s ease'
       }
       return style
+    },
+    isShowText () {
+      const slot = this.$slots
+      return this.showText && !slot.default
     }
   },
   methods: {

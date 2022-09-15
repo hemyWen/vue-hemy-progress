@@ -1,12 +1,14 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-02 09:22:51
- * @LastEditTime: 2022-08-22 11:57:19
+ * @LastEditTime: 2022-09-15 10:18:51
  * @Description: 进度条
 -->
 <template>
   <div class="progress-container">
-    <component :is="componentName" v-bind="$attrs" :type="type"></component>
+    <component :is="componentName" v-bind="$attrs" :type="type">
+      <slot></slot>
+    </component>
   </div>
 </template>
 <script>
@@ -41,6 +43,9 @@ export default {
           return 'div'
       }
     }
+  },
+  created() {
+    // console.log(this.$slots)
   },
   data() {
     return {}

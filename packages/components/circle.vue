@@ -1,11 +1,11 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-10 09:15:49
- * @LastEditTime: 2022-08-22 11:57:24
+ * @LastEditTime: 2022-09-15 10:28:45
  * @Description: 
 -->
 <template>
-  <div class="progress-circle">
+  <div class="svg-container">
     <svg :width="width" :height="width">
       <mask v-if="isDashed" :id="maskID">
         <circle
@@ -37,7 +37,7 @@
         ></circle>
         <text
           class="progress-circle-text"
-          v-if="showText"
+          v-if="isShowText"
           :x="centerPoint.x"
           :y="centerPoint.y"
           text-anchor="middle"
@@ -48,6 +48,9 @@
         </text>
       </g>
     </svg>
+    <div class="slot-container">
+      <slot></slot>
+    </div>
   </div>
 </template>
 <script>

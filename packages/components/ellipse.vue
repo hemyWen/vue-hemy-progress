@@ -1,11 +1,11 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-05 09:55:37
- * @LastEditTime: 2022-08-22 11:57:32
+ * @LastEditTime: 2022-09-15 10:28:51
  * @Description: 椭圆
 -->
 <template>
-  <div class="progress-ellipse">
+  <div class="svg-container">
     <svg :width="width" :height="height">
       <mask v-if="isDashed" :id="maskID">
         <ellipse
@@ -40,7 +40,7 @@
         />
         <text
           class="progress-ellipse__text"
-          v-if="showText"
+          v-if="isShowText"
           :x="centerPoint.x"
           :y="centerPoint.y"
           text-anchor="middle"
@@ -51,6 +51,9 @@
         </text>
       </g>
     </svg>
+    <div class="slot-container">
+      <slot></slot>
+    </div>
   </div>
 </template>
 <script>
