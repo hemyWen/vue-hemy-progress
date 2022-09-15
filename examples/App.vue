@@ -182,6 +182,7 @@
           <Progress class="circle-item" type="circle" backStrokeColor="#ffff66" strokeColor="#48D1CC" :percentage="60">
             <div style="text-align: center">
               <img src="./assets/logo.png" style="width: 20px; height: 20px" />
+              <div>vue</div>
             </div>
           </Progress>
         </div>

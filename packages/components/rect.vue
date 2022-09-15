@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-03 16:25:55
- * @LastEditTime: 2022-09-15 10:29:05
+ * @LastEditTime: 2022-09-15 10:49:11
  * @Description: 矩形
 -->
 <template>
@@ -21,14 +21,21 @@
       <g>
         <rect
           class="progress-rect__back"
-          fill="none"
           :x="origin"
           :y="origin"
           :width="width"
           :height="height"
           :style="backgroundStyle"
         />
-        <rect class="progress-rect__item" :x="origin" :y="origin" :width="width" :height="height" :style="style" />
+        <rect
+          class="progress-rect__item"
+          :x="origin"
+          :y="origin"
+          :width="width"
+          :height="height"
+          :style="style"
+          fill="none"
+        />
         <text
           class="progress-rect__text"
           v-if="isShowText"

@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-10 09:15:49
- * @LastEditTime: 2022-09-15 10:28:45
+ * @LastEditTime: 2022-09-15 10:48:19
  * @Description: 
 -->
 <template>
@@ -24,7 +24,6 @@
           :cx="centerPoint.x"
           :cy="centerPoint.y"
           :r="radius"
-          fill="none"
           :style="backgroundStyle"
         ></circle>
         <!--  环形 -->
@@ -34,6 +33,7 @@
           :cy="centerPoint.y"
           :r="radius"
           :style="style"
+          fill="none"
         ></circle>
         <text
           class="progress-circle-text"

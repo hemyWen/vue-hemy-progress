@@ -1,7 +1,7 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-05 09:55:37
- * @LastEditTime: 2022-09-15 10:28:51
+ * @LastEditTime: 2022-09-15 10:51:06
  * @Description: 椭圆
 -->
 <template>
@@ -10,6 +10,7 @@
       <mask v-if="isDashed" :id="maskID">
         <ellipse
           class="progress-all__mask"
+          fill="none"
           :pathLength="perimeter"
           :cx="centerPoint.x"
           :cy="centerPoint.y"
@@ -26,7 +27,6 @@
           :cy="centerPoint.y"
           :rx="rx"
           :ry="ry"
-          fill="none"
           :style="backgroundStyle"
         />
         <ellipse
@@ -37,6 +37,7 @@
           :rx="rx"
           :ry="ry"
           :style="style"
+          fill="none"
         />
         <text
           class="progress-ellipse__text"

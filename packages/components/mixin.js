@@ -1,7 +1,7 @@
 /*
  * @Author: whm
  * @Date: 2022-08-02 15:04:28
- * @LastEditTime: 2022-09-15 10:20:24
+ * @LastEditTime: 2022-09-15 10:51:46
  * @Description:混入
  */
 export default {
@@ -177,7 +177,6 @@ export default {
     //进度条样式
     style () {
       const {
-        fillColor,
         strokeWidth,
         strokeLinecap,
         strokeLinejoin,
@@ -187,7 +186,6 @@ export default {
       const strokeDasharray = this.strokeDasharray
       const stroke = this.currentStrokeColor
       let style = {
-        fill: fillColor,
         stroke,
         strokeWidth,
         strokeDasharray,
@@ -216,8 +214,9 @@ export default {
     },
     //背景样式
     backgroundStyle () {
-      const { backStrokeColor, backStrokeWidth, strokeLinejoin, radius, isFan } = this.$props
+      const { fillColor, backStrokeColor, backStrokeWidth, strokeLinejoin, radius, isFan } = this.$props
       let style = {
+        fill: fillColor,
         strokeLinejoin,
         stroke: backStrokeColor,
         strokeWidth: backStrokeWidth

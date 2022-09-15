@@ -1,18 +1,18 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-08 09:00:08
- * @LastEditTime: 2022-09-15 10:29:01
+ * @LastEditTime: 2022-09-15 10:50:48
  * @Description: 复杂图形
 -->
 <template>
   <div class="svg-container">
     <svg :width="width" :height="height">
       <mask v-if="isDashed" :id="maskID">
-        <path class="progress-all__mask" :pathLength="pathLength" :d="d" :style="maskStyle" />
+        <path class="progress-all__mask" fill="none" :pathLength="pathLength" :d="d" :style="maskStyle" />
       </mask>
       <g>
-        <path class="progress-path__back" :pathLength="pathLength" fill="none" :d="d" :style="backgroundStyle" />
-        <path class="progress-path__item" :pathLength="pathLength" :d="d" :style="style" />
+        <path class="progress-path__back" :pathLength="pathLength" :d="d" :style="backgroundStyle" />
+        <path class="progress-path__item" :pathLength="pathLength" :d="d" :style="style" fill="none" />
         <text
           class="progress-path__text"
           v-if="isShowText"
