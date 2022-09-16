@@ -1,11 +1,11 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-03 16:25:55
- * @LastEditTime: 2022-09-15 10:49:11
+ * @LastEditTime: 2022-09-16 11:03:40
  * @Description: 矩形
 -->
 <template>
-  <div class="svg-container">
+  <div class="svg-container" :style="{ width: strokeWidth + width + 'px', height: strokeWidth + height + 'px' }">
     <svg :width="strokeWidth + width" :height="strokeWidth + height">
       <mask v-if="isDashed" :id="maskID">
         <rect

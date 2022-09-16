@@ -1,11 +1,11 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-05 09:55:37
- * @LastEditTime: 2022-09-15 10:51:06
+ * @LastEditTime: 2022-09-16 11:04:27
  * @Description: 椭圆
 -->
 <template>
-  <div class="svg-container">
+  <div class="svg-container" :style="{ width: width + 'px', height: height + 'px' }">
     <svg :width="width" :height="height">
       <mask v-if="isDashed" :id="maskID">
         <ellipse

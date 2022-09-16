@@ -7,6 +7,15 @@
           <Progress type="line" :percentage="50" />
           <br />
           <Progress type="line" :percentage="40" strokeColor="red" backStrokeColor="#ccc" :borderRadius="20" />
+          <br />
+          <Progress
+            type="line"
+            :percentage="40"
+            :lineHeight="10"
+            strokeColor="red"
+            backStrokeColor="#ccc"
+            :borderRadius="20"
+          />
         </div>
         <div class="item">
           <h3>环形</h3>
@@ -200,7 +209,12 @@
             strokeLinejoin="round"
             strokeLinecap="round"
             strokeColor="#feb23c"
-          />
+          >
+            <div style="text-align: center">
+              <img src="./assets/logo.png" style="width: 20px; height: 20px" />
+              <div>vue</div>
+            </div>
+          </Progress>
         </div>
         <div class="item">
           <h3></h3>

@@ -11,6 +11,9 @@ module.exports = defineConfig({
       filename: 'index.html'
     }
   },
+  devServer: {
+    port: 3400
+  },
   css: { extract: false },
   // 扩展 webpack 配置，使 packages 加入编译
   chainWebpack: config => {

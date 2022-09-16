@@ -1,11 +1,11 @@
 <!--
  * @Author: whm
  * @Date: 2022-08-10 09:15:49
- * @LastEditTime: 2022-09-15 10:48:19
+ * @LastEditTime: 2022-09-16 11:04:35
  * @Description: 
 -->
 <template>
-  <div class="svg-container">
+  <div class="svg-container" :style="{ width: width + 'px', height: width + 'px' }">
     <svg :width="width" :height="width">
       <mask v-if="isDashed" :id="maskID">
         <circle
