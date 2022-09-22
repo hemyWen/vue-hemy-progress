@@ -12,7 +12,8 @@ module.exports = defineConfig({
     }
   },
   devServer: {
-    port: 3400
+    port: 3400,
+    open: true
   },
   css: { extract: false },
   // 扩展 webpack 配置，使 packages 加入编译
